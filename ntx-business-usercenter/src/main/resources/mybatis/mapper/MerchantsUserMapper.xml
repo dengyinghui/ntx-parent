@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ntx.business.usercenter.mapper.MerchantsUserMapper">
+
+    <insert id="saveMerchantsAccount">
+        insert into t_merchants_account(id, nick_name, telephone, password, delete_flag, create_time,
+        update_time, create_user_id,update_user_id) values(
+            #{id},
+            #{nickName},
+            #{telephone},
+            #{password},
+            #{deleteFlag},
+            #{createTime},
+            #{updateTime},
+            #{createUserId},
+            #{updateUserId}
+        )
+    </insert>
+
+</mapper>

@@ -1,6 +1,7 @@
 package com.ntx.business.shop.controller;
 
 import com.ntx.base.controller.BaseController;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,7 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/shop")
+@Validated
 public class ShopController extends BaseController {
+
 
 
 

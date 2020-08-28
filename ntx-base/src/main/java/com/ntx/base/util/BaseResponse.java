@@ -14,6 +14,15 @@ public class BaseResponse {
         return this;
     }
 
+    public static BaseResponse abnormal(int code, String message){
+        BaseResponse baseResponse = new BaseResponse();
+        baseResponse.setCode(code);
+        baseResponse.setMessage(message);
+        return baseResponse;
+    }
+
+
+
 
     public int getCode() {
         return code;

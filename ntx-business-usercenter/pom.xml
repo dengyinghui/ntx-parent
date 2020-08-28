@@ -11,21 +11,19 @@
     <artifactId>ntx-business-usercenter</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>ntx-business-usercenter</name>
+    <packaging>jar</packaging>
     <description>B端用户中心</description>
 
 
 
     <dependencies>
-
+        <dependency>
+            <groupId>com.ntx.base</groupId>
+            <artifactId>ntx-base</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+
 
 </project>

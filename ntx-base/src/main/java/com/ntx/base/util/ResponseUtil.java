@@ -23,6 +23,16 @@ public class ResponseUtil extends BaseResponse {
         return responseUtil;
     }
 
+    public static ResponseUtil abnormal(int code, String message, Object obj){
+        ResponseUtil responseUtil = new ResponseUtil();
+        responseUtil.setCode(code);
+        responseUtil.setMessage(message);
+        responseUtil.setData(obj);
+        return responseUtil;
+    }
+
+
+
 
     public Object getData() {
         return data;
