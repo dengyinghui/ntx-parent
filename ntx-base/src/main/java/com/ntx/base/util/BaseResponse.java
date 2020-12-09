@@ -1,17 +1,20 @@
 package com.ntx.base.util;
 
 import com.ntx.base.constant.ResponseCode;
+import lombok.Data;
 
+@Data
 public class BaseResponse {
 
     public int code;
 
     public String message;
 
-    public BaseResponse ok(){
-        this.code = ResponseCode.OK;
-        this.message = ResponseCode.OK_MESSAGE;
-        return this;
+    public static BaseResponse ok(){
+        BaseResponse baseResponse = new BaseResponse();
+        baseResponse.setCode(ResponseCode.OK);
+        baseResponse.setMessage(ResponseCode.OK_MESSAGE);
+        return baseResponse;
     }
 
     public static BaseResponse abnormal(int code, String message){
@@ -24,19 +27,5 @@ public class BaseResponse {
 
 
 
-    public int getCode() {
-        return code;
-    }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }

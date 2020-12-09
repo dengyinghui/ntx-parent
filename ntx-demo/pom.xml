@@ -2,26 +2,29 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>com.ntx</groupId>
         <artifactId>ntx-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
-
-    <groupId>com.ntx.base</groupId>
-    <artifactId>ntx-base</artifactId>
+    <groupId>com.ntx.demo</groupId>
+    <artifactId>ntx-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ntx-base</name>
-    <description>Demo project for Spring Boot</description>
+    <name>ntx-demo</name>
     <packaging>jar</packaging>
+    <description>示例工程</description>
 
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
+            <groupId>com.ntx.base</groupId>
+            <artifactId>ntx-base</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ntx.common</groupId>
+            <artifactId>ntx-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
