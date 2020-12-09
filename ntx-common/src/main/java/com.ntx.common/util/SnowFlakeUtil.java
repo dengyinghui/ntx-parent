@@ -1,4 +1,4 @@
-package com.ntx.base.util;
+package com.ntx.common.util;
 
 public class SnowFlakeUtil {
 
