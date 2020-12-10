@@ -2,9 +2,11 @@ package com.ntx.demo.controller;
 
 import com.ntx.base.controller.BaseController;
 import com.ntx.base.util.BaseResponse;
+import com.ntx.base.util.DistributedLockUtil;
 import com.ntx.base.util.ResponseUtil;
 import com.ntx.demo.vo.TestBodyVo;
 import lombok.extern.slf4j.Slf4j;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.validation.annotation.Validated;
@@ -22,23 +24,11 @@ import javax.validation.constraints.NotNull;
 @Slf4j
 public class DemoController extends BaseController {
 
-    @Autowired
-    private RedisTemplate redisTemplate;
-
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public BaseResponse test(
             @RequestParam(value = "name") @NotBlank(message = "name不能为空") String name,
             @RequestParam(value = "age") @NotNull(message = "age不能为空") Integer age){
-        boolean flag = DistributedLockUtil.tryLock("hello");
-        if(flag){
-            try{
-                System.out.println("aaaaaaaaaaaaaaaaaaaaaa");
-                Thread.sleep(3000);
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-        return ResponseUtil.ok(this.redisTemplate.opsForValue().get("bhst:slove:ugc:String:trends:pageSize"));
+        return ResponseUtil.ok();
     }
 
     @RequestMapping(value = "/testBody", method = RequestMethod.POST)

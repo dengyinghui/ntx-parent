@@ -3,6 +3,8 @@ package com.ntx.base.util;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
@@ -10,7 +12,10 @@ import java.util.concurrent.TimeUnit;
  * 分布式锁
  */
 @Slf4j
+@Component
 public class DistributedLockUtil {
+
+
 
     /**
      * 加锁
@@ -19,7 +24,8 @@ public class DistributedLockUtil {
      * @param expireTime 过期时间
      * @throws Exception
      */
-    public static boolean tryLock(RedissonClient redissonClient, String key, long waitTime, long expireTime){
+    public static boolean tryLock(String key, long waitTime, long expireTime){
+        RedissonClient redissonClient = SpringContextUtil.getBean(RedissonClient.class);
         RLock lock = redissonClient.getLock(key);
         boolean flag = false;
         try{
@@ -41,15 +47,16 @@ public class DistributedLockUtil {
      * @param key 加锁key
      * @throws Exception
      */
-    public static boolean tryLock(RedissonClient redissonClient, String key){
-        return tryLock(redissonClient, key, 5L, 10L);
+    public static boolean tryLock(String key){
+        return tryLock(key, 5L, 10L);
     }
 
     /**
      * 释放锁
      * @param key 加锁key
      */
-    public static void unLock(RedissonClient redissonClient, String key){
+    public static void unLock(String key){
+        RedissonClient redissonClient = SpringContextUtil.getBean(RedissonClient.class);
         RLock lock = redissonClient.getLock(key);
         if(lock.isLocked()){
             if(lock.isHeldByCurrentThread()){
