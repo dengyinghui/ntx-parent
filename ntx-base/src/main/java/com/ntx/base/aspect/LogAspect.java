@@ -82,7 +82,6 @@ public class LogAspect {
             Map<String, String[]> params = request.getParameterMap();
             stringBuilder.append(JSONObject.toJSONString(params));
         }
-        log.info(stringBuilder.toString());
         return stringBuilder.toString();
     }
 
