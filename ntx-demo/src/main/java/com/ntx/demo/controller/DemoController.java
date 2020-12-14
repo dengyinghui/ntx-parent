@@ -2,13 +2,12 @@ package com.ntx.demo.controller;
 
 import com.ntx.base.controller.BaseController;
 import com.ntx.base.util.BaseResponse;
-import com.ntx.base.util.DistributedLockUtil;
 import com.ntx.base.util.ResponseUtil;
+import com.ntx.common.util.SnowFlakeUtil;
+import com.ntx.demo.service.DemoService;
 import com.ntx.demo.vo.TestBodyVo;
 import lombok.extern.slf4j.Slf4j;
-import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,11 +23,19 @@ import javax.validation.constraints.NotNull;
 @Slf4j
 public class DemoController extends BaseController {
 
+    @Autowired
+    private DemoService demoService;
+
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public BaseResponse test(
             @RequestParam(value = "name") @NotBlank(message = "name不能为空") String name,
             @RequestParam(value = "age") @NotNull(message = "age不能为空") Integer age){
-        return ResponseUtil.ok();
+        TestBodyVo testBodyVo = new TestBodyVo();
+        testBodyVo.setName(name);
+        testBodyVo.setAge(age);
+        testBodyVo.setId(SnowFlakeUtil.getId());
+        int result = demoService.save(testBodyVo);
+        return ResponseUtil.ok(result);
     }
 
     @RequestMapping(value = "/testBody", method = RequestMethod.POST)
