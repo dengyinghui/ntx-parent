@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ntx.base.mapper.RocketmqMessageLogMapper">
+
+    <resultMap id="rocketmqMessageView" type="com.ntx.base.view.RocketmqMessageView">
+        <id column="msg_id" property="msgId" />
+        <result column="key" property="key" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <insert id="save">
+        insert into t_rocketmq_message_log(msg_id,`key`,status,create_time) values (#{msgId},#{key},#{status},#{createTime})
+    </insert>
+
+    <select id="findRocketmqMessageByMsgId" resultMap="rocketmqMessageView">
+        select msg_id,`key`,status,create_time from t_rocketmq_message_log where msg_id = #{msgId}
+    </select>
+
+    <update id="updateStatus">
+        update t_rocketmq_message_log set status = #{status} where msg_id = #{msgId}
+    </update>
+
+</mapper>
