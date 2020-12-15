@@ -28,6 +28,7 @@
         <commons.io.version>2.4</commons.io.version>
         <mybatis-plus.version>3.1.1</mybatis-plus.version>
         <lomok.version>1.18.2</lomok.version>
+        <rocketmq.version>4.3.2</rocketmq.version>
     </properties>
 
     <dependencyManagement>
@@ -114,6 +115,12 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatis-plus.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>${rocketmq.version}</version>
         </dependency>
 
     </dependencies>
