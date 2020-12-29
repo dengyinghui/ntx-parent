@@ -1,5 +1,6 @@
 package com.ntx.base.controller;
 
+import com.ntx.base.annotation.RateLimit;
 import com.ntx.base.util.BaseResponse;
 import com.ntx.base.util.ResponseUtil;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,7 @@ public class BaseController {
     }
 
     @RequestMapping(value = "/base/timestamp", method = RequestMethod.GET)
+    @RateLimit
     public BaseResponse timestamp(){
         return ResponseUtil.ok(new Date().getTime());
     }

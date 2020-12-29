@@ -9,7 +9,7 @@ import java.security.SecureRandom;
 public class DESUtil {
 
     public static void main(String[] args) {
-        String secretKey = "dengyinghui";
+        String secretKey = "";
         String data = "";
         String p = encryptBasedDes(data, secretKey);
         System.out.println(p);
