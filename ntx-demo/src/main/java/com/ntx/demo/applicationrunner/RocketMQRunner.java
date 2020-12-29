@@ -62,7 +62,7 @@ public class RocketMQRunner implements ApplicationRunner {
                     if(rocketmqMessageView == null){
                         RocketmqMessageVo rocketmqMessageVo = new RocketmqMessageVo(msgId, messageExt.getKeys());
                         rocketmqMessageLogService.save(rocketmqMessageVo);
-                        log.info("msgId:" + msgId + "消费中.");
+                        log.info("msgId:" + msgId + "开始消费.");
                         return demoConsumer.consumer(msgId, messageBody);
                     } else{
                         int status = rocketmqMessageView.getStatus();

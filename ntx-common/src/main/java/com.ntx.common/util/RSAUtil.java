@@ -106,19 +106,7 @@ public class RSAUtil {
     }
 
     public static void main(String[] args) throws Exception{
-        StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0;i < 100000;i++){
-            stringBuilder.append("总共");
-        }
-        String publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCOsHjaaO/Rw91rcJdP//gfqXrIiukV5w97oX5Exlv2iR4yj91oNmRCfSPCTV+a+HB3G99cDuk2HvUpN+/fysl37IgPG2pLvAwK+XZ41xd7alk1Qhy2oFtcyULM6ffCFC2ziSTKpZIfqzxuqTxtyYQvcjXUZCHAhT3lruzab2iyNQIDAQAB";
-        String privateKey = "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAI6weNpo79HD3Wtwl0//+B+pesiK6RXnD3uhfkTGW/aJHjKP3Wg2ZEJ9I8JNX5r4cHcb31wO6TYe9Sk379/KyXfsiA8baku8DAr5dnjXF3tqWTVCHLagW1zJQszp98IULbOJJMqlkh+rPG6pPG3JhC9yNdRkIcCFPeWu7NpvaLI1AgMBAAECgYBTw8NerGXE5c+xR+p8G09E/xBGdE26/ub28+oVY8EO7JXeptgaWnvnEGGSqitq5VfYhHNOLq63h9ryNJVL8lbseaR6lgPtvbZdHNp6awp/pL/whfU6l15UTPlIBa6lbfpV1qK8b0IUAhOm+Ej7565+lC+6rKfBV25wayY6g/MWzQJBAPRtiyN7lWNPflLSc1Hchr53DQZn1pIbZCsIrorCRNNgULvWxXzygMvWD/hjmUpRvG26QjsJY1g9VJ5Q/ePQvv8CQQCVcdx7zGESNbvJW4EYau7tZtK5H4P3fK2PCedWNwTZ5/hPr7h6UyTqs16vQBX5gHxhwAB0eBGXcPsKHDaL3MLLAkBWyrr4S369N9HsSMwoCj1STmWym5aGZPGJklif7uGPiQjB2j5f4qA3QPiEw6D/0cwtzlCMNAYxo/1zBeFRTqMzAkAKhzf6PL7F8qUlHV4t4zKr5OeJhS/d2pm7jv4OM9gSpeX3bzC25W6fXj2YaRJjPmsE0+r0SZUrrxjwcGZjWg0bAkBlvL5UVGpqf0diV2Da1pDet5vR95AWnGDoBQi7VyTDVHHr/nmTdMqflBStOgnAR4iX2lcu5KCYZasjUGT3nf4G";
-        /*String message = encrypt(stringBuilder.toString(), publicKey);
-        System.out.println(message);
-        System.out.println(decrypt(message, privateKey));*/
 
-        String message = sign(stringBuilder.toString(), privateKey);
-        System.out.println(message);
-        System.out.println(verifySign(stringBuilder.toString(), message, publicKey));
 
     }
 
