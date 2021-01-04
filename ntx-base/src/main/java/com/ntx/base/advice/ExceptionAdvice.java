@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolation;
@@ -51,6 +52,10 @@ public class ExceptionAdvice {
         } else if(e instanceof MethodArgumentTypeMismatchException){
             String paramName = ((MethodArgumentTypeMismatchException) e).getName();
             return ResponseUtil.abnormal(ResponseCode.PARAMETER_TYPE_MISMATCH_CODE, ResponseCode.PARAMETER_TYPE_MISMATCH_MESSAGE, paramName + ResponseCode.PARAMETER_TYPE_MISMATCH_MESSAGE);
+        } else if(e instanceof NoHandlerFoundException){
+            NoHandlerFoundException noHandlerFoundException = (NoHandlerFoundException)e;
+            String resultURL = noHandlerFoundException.getRequestURL();
+            return ResponseUtil.abnormal(ResponseCode.NOT_FOUND_CODE, ResponseCode.NOT_FOUND_MESSAGE, resultURL);
         } else{
             return ResponseUtil.abnormal(ResponseCode.BUSINESS_CODE, ResponseCode.BUSSINESS_MESSAGE);
         }

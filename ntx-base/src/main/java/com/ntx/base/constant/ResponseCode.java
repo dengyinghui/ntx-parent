@@ -30,5 +30,9 @@ public class ResponseCode {
 
     public static final String BUSSINESS_MESSAGE = "业务异常.";
 
+    public static final int NOT_FOUND_CODE = 404;
+
+    public static final String NOT_FOUND_MESSAGE = "接口地址不存在.";
+
 
 }
